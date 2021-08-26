@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en-US">
+
+<!-- Mirrored from themes.propeller.in/bootstrap4/html/bootstrap4-admin-theme/notifications.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 May 2021 16:48:39 GMT -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Notifications page template. Bootstrap 4 Admin HTML Theme is a material design and bootstrap 4 based responsive dashboard template by propeller created mainly for admin and backend applications.">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Bootstrap 4 Admin HTML Theme - Notifications Page Template</title>
+<link rel="shortcut icon" type="image/x-icon" href="static/themes/images/favicon.ico">
+
+<!-- Google icon -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Rubik Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
+	
+<!-- build:remove -->
+<!--Admin css-->
+<link rel="stylesheet" type="text/css" href="static/themes/css/bootstrap4-admin-compress.min.css">
+<!-- /build -->
+
+<!-- build:include snippets/css-files-404.html -->
+<!-- /build -->
+
+<!-- build:remove -->
+<!--Google Analytics code-->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','assets/js/analytics.js','ga');
+  ga('create', 'UA-124615-22', 'auto');
+    ga('send', 'pageview');
+</script>
+
+<!-- Canonical Tag -->
+<link rel="canonical" href="notifications.html" />
+<!-- /build -->
+
+</head>
+
+<body>
+
+<!-- Header Starts -->
+<nav class="navbar navbar-expand-xl fixed-top navbar-light bg-white pmd-navbar pmd-z-depth-light-1">
+    <a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1300" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pmd-sidebar-toggle"><i class="material-icons md-dark">menu</i></a>
+    
+    <!-- Navbar Brand -->
+    <div class="navbar-header">
+        <!-- <a class="navbar-brand" href="Member_Dashboard">
+           Bootstrap 4 <span>Admin</span>
+        </a> -->
+        
+    </div>
+
+    <!-- Search Form -->
+    <form class="col-md-6 col-lg-4 d-none d-md-block ml-lg-5 ml-md-2" action="search" method="get"> 
+        <div class="input-group pmd-search">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                    <i class="material-icons md-dark pmd-icon-sm">search</i>
+                </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+    </form>
+
+    <!-- Right Menu -->
+    <div class="pmd-navbar-right-icon ml-auto">
+        <div class="nav-item d-inline-block dropdown pmd-dropdown">
+            <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat" id="emailDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-badge="{{bbb.count}}" class="material-icons pmd-badge pmd-badge-overlap pmd-badge-success md-dark pmd-sm">
+                    mail_outline
+                </i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right notifications-col" aria-labelledby="emailDropdown">
+                <div class="card pmd-card mb-0">
+                    <div class="card-header d-flex w-100 justify-content-between pmd-card-border">
+                        <h3 class="pmd-list-title mb-0">Emails</h3>
+                        <a href="inbox.html" class="text-primary"><small>{{bbb.count}} New Emails</small></a>
+                    </div>
+                    <div class="list-group pmd-list pmd-list-border">
+                        {% for bbb in bbb%}
+                        <a class="list-group-item d-flex flex-row"  href="inbox-detail.html">
+                            <span class="pmd-avatar-list-img">
+                                <img alt="40x40" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-1.jpg" data-holder-rendered="true">
+                            </span>
+                            <div class="media-body">
+                                <h3 class="pmd-list-title">{{bbb.Title}}</h3>
+                                <p class="pmd-list-subtitle">{{bbb.Description}}</p>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-item dropdown pmd-dropdown d-inline-block">
+            <a class="btn btn-sm pmd-btn-fab pmd-btn-flat" href="javascript:void(0);" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-badge="{{aaa.count}}" class="material-icons pmd-badge pmd-badge-overlap pmd-badge-success md-dark pmd-sm">notifications_none</i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right notifications-col" aria-labelledby="navbarDropdown">
+                <div class="card pmd-card mb-0">
+                    <div class="card-header d-flex w-100 justify-content-between pmd-card-border">
+                        <h3 class="pmd-list-title mb-0">Notifications</h3>
+                        <a href="notifications.html" class="text-primary"><small>{{aaa.count}} New Notifications</small></a>
+                    </div>
+
+                    <div class="list-group pmd-list pmd-list-border">
+                        {% for aaa in aaa %}
+                        <a class="list-group-item d-flex flex-row"  href="javascript:void(0);">
+                            <span class="pmd-avatar-list-img">
+                                <img alt="40x40" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-1.jpg" data-holder-rendered="true">
+                            </span>
+                            
+                            <div class="media-body">
+                                
+                                <h3 class="pmd-list-title"><span>{{aaa.Title}}</h3>
+                                <p class="pmd-list-subtitle">{{aaa.Description}}</p>
+                                
+                            </div>
+
+                        </a>
+                        {% endfor %}
+                        
+                        
+
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Header Ends -->
+
+<!-- Sidebar Starts -->
+<div class="pmd-sidebar-overlay"></div>
+
+<!-- Left sidebar -->
+<aside id="basicSidebar" class="pmd-sidebar pmd-sidebar-dark pmd-sidebar-slide-push pmd-sidebar-open bg-primary pmd-z-depth-light-2" role="navigation">
+	<ul class="nav flex-column pmd-sidebar-nav">
+		
+		<li class="nav-item pmd-user-info mb-0">
+            <a href="#" class="nav-link btn-user text-center">
+                <img class="rounded-circle m-auto" src="{{user.member.profile.url}}" width="40" height="40" alt="avatar">
+                <h3 class="pmd-title m-0">Welcome {{request.user.first_name}}</h3>
+            </a>
+        </li>
+        <!-- End user info -->
+        
+        <li class="nav-item">
+            <a class="nav-link pmd-ripple-effect" href="Member_Dashboard">
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                    <svg version="1.1" x="0px" y="0px" width="19.83px" height="18px" viewBox="287.725 407.535 19.83 18" enable-background="new 287.725 407.535 19.83 18" xml:space="preserve">
+                        <g><path d="M307.555,407.535h-9.108v10.264h9.108V407.535z M287.725,407.535v6.232h9.109v-6.232H287.725z M296.834,415.271h-9.109v10.264h9.109V415.271z M307.555,419.303h-9.108v6.232h9.108V419.303z" /></g>
+                    </svg>
+                </i>
+                <span class="media-body">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link pmd-ripple-effect" href="Member_Profile">
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                    <!-- web -->
+                </i>
+                <span class="media-body">Profile</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link pmd-ripple-effect" href="Add_College_or_University">
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                    <!-- web -->
+                </i>
+                <span class="media-body">Add College/University</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link pmd-ripple-effect" href="College_University_List">
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                    <!-- web -->
+                </i>
+                <span class="media-body">College/University List</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link pmd-ripple-effect" href="Student_Enroll">
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                    <!-- web -->
+                </i>
+                <span class="media-body">Student Enrollment</span>
+            </a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link pmd-ripple-effect" href="Member_Inbox">
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                    <!-- inbox -->
+                </i>
+                <span class="media-body">Inbox</span>
+            </a>
+        </li>
+       
+        <li class="nav-item">
+            <a class="nav-link pmd-ripple-effect" href="Member_Account_Settings">
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                    <!-- settings -->
+                </i>
+                <span class="media-body">Account Settings</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Member_logout">
+                <!-- <i class="material-icons pmd-list-icon pmd-sm">power_settings_new</i> -->
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                </i>
+                <span class="media-body">Logout</span>
+            </a>
+        </li>
+    </ul>
+</aside>
+<!-- End Left sidebar -->
+<!-- Sidebar Ends -->
+
+<!--content area start-->
+<div id="content" class="pmd-content inner-page section-container">
+    <!-- Title -->
+    <h1  >Notifications</h1><!-- End Title -->
+
+    <!--breadcrum start-->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb pmd-breadcrumb">
+        <li class="breadcrumb-item"><a href="Member_Dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Notifications</li>
+      </ol>
+    </nav><!--breadcrum end-->
+
+    <section class="section notifications" id="notifications"> 
+        <!-- section content start-->
+        <ul class="list-group pmd-list">
+            <li class="list-group-item d-flex flex-row new-day" data-date="Today, August 18, 2018">
+                <span class="pmd-avatar-list-img">
+                    <img alt="Prathit" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-1.jpg" data-holder-rendered="true"> 
+                </span> 
+                <div class="media-body">
+                    <h3 class="pmd-list-title">Robert updated his profile.</h3>
+                    <p class="pmd-list-subtitle">5 Minutes ago</p> 
+                </div>
+            </li>
+
+            <li class="list-group-item d-flex flex-row">
+                <span class="pmd-avatar-list-img">
+                    <img alt="Keel" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-2.jpg" data-holder-rendered="true"> 
+                </span> 
+                <div class="media-body">
+                    <h3 class="pmd-list-title">Darlene applied for a leave on November 7<sup>th</sup>, 2018.</h3>
+                    <p class="pmd-list-subtitle">15 Minutes ago</p> 
+                </div>
+            </li>
+
+            <li class="list-group-item d-flex flex-row">
+                <span class="pmd-avatar-list-img">
+                    <img alt="John" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-3.jpg" data-holder-rendered="true"> 
+                </span> 
+                <div class="media-body">
+                    <h3 class="pmd-list-title">Fay has completed his 1 year at XYZ. Its his work anniversary today.</h3>
+                    <p class="pmd-list-subtitle">25 Minutes ago</p> 
+                </div>
+            </li>
+
+            <li class="list-group-item d-flex flex-row unread new-day" data-date="Yesterday, August 17, 2018">
+                <span class="pmd-avatar-list-img">
+                    <img alt="John" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/interview-holder.png" data-holder-rendered="true"> 
+                </span>
+                <div class="media-body">
+                    <h3 class="pmd-list-title">Today you have an interview scheduled with <strong>Martha Jhon</strong> at 2:30 PM.</h3>
+                    <p class="pmd-list-subtitle">5 Minutes ago</p>
+                </div>
+            </li>
+
+            <li class="list-group-item d-flex flex-row">
+                <span class="pmd-avatar-list-img">
+                    <img alt="Keel" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-2.jpg" data-holder-rendered="true"> 
+                </span> 
+                <div class="media-body">
+                    <h3 class="pmd-list-title">Today is <strong>Wendell Grover</strong>'s first day. Wish him luck.</h3>
+                    <p class="pmd-list-subtitle">15 Minutes ago</p> 
+                </div>
+            </li>
+
+            <li class="list-group-item d-flex flex-row">
+                <span class="pmd-avatar-list-img">
+                    <img alt="Keel" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-2.jpg" data-holder-rendered="true"> 
+                </span> 
+                <div class="media-body">
+                    <h3 class="pmd-list-title">Today is <strong>Samuel Smith</strong>'s birthday. Help him make it better.</h3>
+                    <p class="pmd-list-subtitle">15 Minutes ago</p> 
+                </div>
+            </li>
+        </ul>
+        <!-- section content end -->
+    </section>
+</div><!-- content area end -->
+
+<!-- Footer Starts -->
+<!-- <footer class="pmd-footer">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12 align-self-center">
+				<div class="pmd-site-info">
+					© <span class="auto-update-year"></span> A <a href="https://pro.propeller.in/" target="_blank"><strong>Propeller Pro </strong></a> Theme
+				</div>
+			</div>
+		</div>
+	</div>
+</footer> -->
+<!-- Footer Ends -->
+
+<!-- build:include snippets/js-files-404.html -->
+<!-- /build -->
+
+<!-- build:remove -->
+<!--Admin js-->
+<script type="text/javascript" src="static/themes/js/bootstrap4-admin-compress.min.js"></script> 
+<!-- /build --> 
+
+<script>
+	$(document).ready(function() {
+		var sPath=window.location.pathname;
+		var sPage = sPath.substring(sPath.lastIndexOf('https://themes.propeller.in/') + 1);
+		$(".pmd-sidebar-nav").each(function(){
+			$(this).find("a[href='"+sPage+"']").parents(".collapse").addClass("show");
+			$(this).find("a[href='"+sPage+"']").parents(".collapse").prev('a.nav-link').addClass("active");
+			$(this).find("a[href='"+sPage+"']").addClass("active");
+		});
+		$(".auto-update-year").html(new Date().getFullYear());
+	});
+</script> 
+<!-- Scripts Ends -->
+
+</body>
+
+<!-- Mirrored from themes.propeller.in/bootstrap4/html/bootstrap4-admin-theme/notifications.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 May 2021 16:48:43 GMT -->
+</html>

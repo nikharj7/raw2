@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Notification</title>
+</head>
+
+<body>
+    <div class="list-group pmd-list pmd-card-list pmd-z-depth-light-2">
+        {% for notifications in notifications%}
+        {% if notifications.title%}
+        <a class="list-group-item d-flex unread">
+            <div class="d-flex">
+                <div class="pmd-avatar-list-img inbox-user-pic">
+                    <div class="custom-control custom-checkbox pmd-checkbox">
+                        <input class="custom-control-input" type="checkbox" value="" id="defaultCheck15">
+                        <label class="custom-control-label" for="defaultCheck15"></label>
+                    </div>
+                    <img alt="40x40" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-1.jpg" data-holder-rendered="true">
+                </div>
+                <div class="mr-4 avatar-info">
+                    <h3 class="pmd-list-title">{{notifications.title}},</span> {{notifications.user}}</h3>
+                    
+                </div>
+                <p class="pmd-list-subtitle">{{notifications.message}}</p>
+            </div>
+            
+            <small class="text-muted time"></small>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</body>
+
+</html>

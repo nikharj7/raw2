@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-US">
+{%load custom_tags%}
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Dashboard</title>
+<meta name="description" content="Dashboard template. Bootstrap 4 Admin HTML Theme is a material design and bootstrap 4 based responsive dashboard template by propeller created mainly for admin and backend applications."/>
+<link rel="shortcut icon" type="image/x-icon" href="static/themes/images/favicon.ico">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    
+    <meta name="description" content="Dashboard template. Bootstrap 4 Admin HTML Theme is a material design and bootstrap 4 based responsive dashboard template by propeller created mainly for admin and backend applications." />
+    <link rel="shortcut icon" type="image/x-icon" href="static/themes/images/favicon.ico">
+    <!-- Google icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Rubik Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
+    <!-- build:remove -->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>
+  <style type="text/css">
+    .modal-body {
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
+    }
+    </style>
+<script>
+    $(document).ready(function() {
+        var sPath = window.location.pathname;
+        var sPage = sPath.substring(sPath.lastIndexOf('https://themes.propeller.in/') + 1);
+        $(".pmd-sidebar-nav").each(function() {
+            $(this).find("a[href='" + sPage + "']").parents(".collapse").addClass("show");
+            $(this).find("a[href='" + sPage + "']").parents(".collapse").prev('a.nav-link').addClass("active");
+            $(this).find("a[href='" + sPage + "']").addClass("active");
+        });
+    });
+    </script>
+
+
+<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
+
+
+<link rel="stylesheet" type="text/css" href="static/themes/css/bootstrap4-admin-compress.min.css">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','assets/js/analytics.js','ga');
+  ga('create', 'UA-124615-22', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+<link rel="canonical" href="Dashboard" />
+
+</head>
+<body>
+    {% if user.company.Terms_and_Conditions is True%}
+    <nav class="navbar navbar-expand-xl fixed-top navbar-light bg-white pmd-navbar pmd-z-depth-light-1">
+    <a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1300" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pmd-sidebar-toggle"><i class="material-icons md-dark">menu</i></a>
+    
+  
+    <div class="navbar-header">
+       
+        
+    </div>
+
+   
+    <form class="col-md-6 col-lg-4 d-none d-md-block ml-lg-5 ml-md-2" action="search" method="get">
+        <div class="input-group pmd-search">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">
+                    <i class="material-icons md-dark pmd-icon-sm">search</i>
+                </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+    </form>
+
+
+   <div class="pmd-navbar-right-icon ml-auto">
+        <div class="nav-item d-inline-block dropdown pmd-dropdown">
+            
+            <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat" id="emailDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-badge="{{bbb.count}}" class="material-icons pmd-badge pmd-badge-overlap pmd-badge-success md-dark pmd-sm">
+                    mail_outline
+                </i>
+            </a>
+            
+            <div class="dropdown-menu dropdown-menu-right notifications-col" aria-labelledby="emailDropdown">
+                <div class="card pmd-card mb-0">
+                    <div class="card-header d-flex w-100 justify-content-between pmd-card-border">
+                        <h3 class="pmd-list-title mb-0">Emails</h3>
+                        <a href="inbox.html" class="text-primary"><small>{{bbb.count}} New Emails</small></a>
+                    </div>
+                    <div class="list-group pmd-list pmd-list-border">
+                        {% for bbb in bbb%}
+                        <a class="list-group-item d-flex flex-row"  href="inbox-detail.html">
+                            <span class="pmd-avatar-list-img">
+                                <img alt="40x40" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-1.jpg" data-holder-rendered="true">
+                            </span>
+                            <div class="media-body">
+                                <h3 class="pmd-list-title">{{bbb.Title}}</h3>
+                                <p class="pmd-list-subtitle">{{bbb.Description}}</p>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="nav-item dropdown pmd-dropdown d-inline-block">
+            
+            <a class="btn btn-sm pmd-btn-fab pmd-btn-flat" href="javascript:void(0);" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-badge="{{aaa.count}}" class="material-icons pmd-badge pmd-badge-overlap pmd-badge-success md-dark pmd-sm">notifications_none</i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right notifications-col" aria-labelledby="navbarDropdown">
+                <div class="card pmd-card mb-0">
+                    <div class="card-header d-flex w-100 justify-content-between pmd-card-border">
+                        <h3 class="pmd-list-title mb-0">Notifications</h3>
+                        <a href="notifications.html" class="text-primary"><small>{{aaa.count}} New Notifications</small></a>
+                    </div>
+                    
+                    <div class="list-group pmd-list pmd-list-border">
+                        {% for aaa in aaa %}
+                        <a class="list-group-item d-flex flex-row"  href="javascript:void(0);">
+                            <span class="pmd-avatar-list-img">
+                                <img alt="40x40" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-1.jpg" data-holder-rendered="true">
+                            </span>
+                            
+                            <div class="media-body">
+                                
+                                <h3 class="pmd-list-title"><span>{{aaa.Title}}</h3>
+                                <p class="pmd-list-subtitle">{{aaa.Description}}</p>
+                                
+                            </div>
+
+                        </a>
+                        
+                        
+                        {% endfor %}
+
+                    
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+</nav>
+
+<div class="pmd-sidebar-overlay"></div>
+
+
+<aside id="basicSidebar" class="pmd-sidebar pmd-sidebar-dark pmd-sidebar-slide-push pmd-sidebar-open bg-primary pmd-z-depth-light-2" role="navigation">
+    <ul class="nav flex-column pmd-sidebar-nav">
+        
+    
+        <li class="nav-item pmd-user-info mb-0">
+            <a href="#" class="nav-link btn-user text-center">
+                <img class="rounded-circle m-auto" src="{{user.company.Profile.url}}" width="40" height="40" alt="avatar">
+                <h3 class="pmd-title m-0">Welcome {{request.user.first_name}} </h3>
+            </a>
+        </li>
+       
+        
+        <li class="nav-item">
+            <a class="nav-link pmd-ripple-effect" href="Company_Dashboard">
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                    <svg version="1.1" x="0px" y="0px" width="19.83px" height="18px" viewBox="287.725 407.535 19.83 18" enable-background="new 287.725 407.535 19.83 18" xml:space="preserve">
+                        <g><path d="M307.555,407.535h-9.108v10.264h9.108V407.535z M287.725,407.535v6.232h9.109v-6.232H287.725z M296.834,415.271h-9.109v10.264h9.109V415.271z M307.555,419.303h-9.108v6.232h9.108V419.303z" /></g>
+                    </svg>
+                </i>
+                <span class="media-body">Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link pmd-ripple-effect" href="Company_Profile">
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                   
+                </i>
+                <span class="media-body">Profile</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link pmd-ripple-effect" href="Internship">
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                  
+                </i>
+                <span class="media-body">Internship</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link pmd-ripple-effect" href="Job">
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                    <!-- web -->
+                </i>
+                <span class="media-body">Job</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link pmd-ripple-effect" href="Company_Account_Settings">
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                    <!-- settings -->
+                </i>
+                <span class="media-body">Account Settings</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="logout">
+                <!-- <i class="material-icons pmd-list-icon pmd-sm">power_settings_new</i> -->
+                <i class="material-icons pmd-list-icon pmd-sm md-light">
+                </i>
+                <span class="media-body">Logout</span>
+            </a>
+        </li>
+    </ul>
+</aside>
+<!-- End Left sidebar -->
+<!-- Sidebar Ends -->
+
+<!--content area start-->
+<div class="container my-3">
+    <h2> Search results : </h2>
+    {% if Student_search|length < 1 %}
+    Your search query - <b> {{query}} </b> - did not match any documents. <br>
+
+    Suggestions:
+    <ul>
+
+        <li>Make sure that all words are spelled correctly.</li>
+        <li>Try different keywords.</li>
+        <li>Try more general keywords.</li>
+        <li>Try fewer keywords.</li>
+    </ul>
+    {% endif %}
+    {% for post in Student_search  %}
+
+    
+    <table class="table">
+  <thead>
+    <tr>
+
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      
+      <td>{{post.First_Name}}</td>
+      <td>{{post.Last_Name}}</td>
+      <td>{{post.Email}}</td>
+    </tr>
+    
+  </tbody>
+</table>
+    {% endfor %}
+</div>
+
+<!-- content area end -->
+
+<!-- Footer Starts -->
+<!-- <footer class="pmd-footer">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12 align-self-center">
+				<div class="pmd-site-info">
+					© <span class="auto-update-year"></span> A <a href="https://pro.propeller.in/" target="_blank"><strong>Propeller Pro </strong></a> Theme
+				</div>
+			</div>
+		</div>
+	</div>
+</footer> -->
+<!-- Footer Ends -->
+
+<!-- build:include snippets/js-files-account-settings.html -->
+<!-- /build -->
+
+<!-- build:remove -->
+<!--Admin js-->
+<script type="text/javascript" src="static/themes/js/bootstrap4-admin-compress.min.js"></script> 
+<!-- /build --> 
+
+<script>
+	$(document).ready(function() {
+		var sPath=window.location.pathname;
+		var sPage = sPath.substring(sPath.lastIndexOf('https://themes.propeller.in/') + 1);
+		$(".pmd-sidebar-nav").each(function(){
+			$(this).find("a[href='"+sPage+"']").parents(".collapse").addClass("show");
+			$(this).find("a[href='"+sPage+"']").parents(".collapse").prev('a.nav-link').addClass("active");
+			$(this).find("a[href='"+sPage+"']").addClass("active");
+		});
+		$(".auto-update-year").html(new Date().getFullYear());
+	});
+</script>
+
+<!-- Scripts Ends -->
+
+</body>
+
+<!-- Mirrored from themes.propeller.in/bootstrap4/html/bootstrap4-admin-theme/account-settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 May 2021 16:49:22 GMT -->
+</html>

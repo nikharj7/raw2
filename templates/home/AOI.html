@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>List</title>
+</head>
+
+<body>
+    <thead>
+        <tr>
+            <th>Education</th>
+            <th>Sports</th>
+            <th>Level</th>
+            <th>Medal</th>
+            <th>Number of Medals</th>
+            <th>Performing Arts</th>
+            <th>Performing Arts if any</th>
+        </tr>
+    </thead>
+    {% for AOIS in AOIS%}
+    <tbody>
+        <tr>
+            <strong>
+                <td class="text-center">{{AOIS.Education}}</td>
+                {% if user.Student_Activity_Email.Sports  == 1%}
+                <td class="text-center">Cricket</td>
+                {%elif user.Student_Activity_Email.Sports == 2%}
+                <td class="text-center">BasketBall</td>
+                {%else%}
+                <td class="text-center">{{AOIS.Sports}}</td>
+                {%endif%}
+                <td class="text-center">{{AOIS.Level}}</td>
+                <td class="text-center">{{AOIS.Medal}}</td>
+                <td class="text-center">{{AOIS.Number_of_Medals}}</td>
+                {% if user.Student_Activity_Email.Performing_Arts == 1%}
+                <td class="text-center">Dance</td>
+                {%elif user.Student_Activity_Email.Performing_Arts == 2 %}
+                <td class="text-center">Music</td>
+                {%else%}
+                <td class="text-center">{{AOIS.Performing_Arts}}</td>
+                {%endif%}
+                <td class="text-center">{{AOIS.Performing_Arts_if_any}}</td>
+
+
+            </strong>
+    </tbody>
+    {%endfor%}
+</body>
+
+</html>

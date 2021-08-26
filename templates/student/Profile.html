@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en-US">
+{% load AOI %}
+<!-- Mirrored from themes.propeller.in/bootstrap4/html/bootstrap4-admin-theme/employee-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 May 2021 16:48:52 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Employee detail page template. Bootstrap 4 Admin HTML Theme is a material design and bootstrap 4 based responsive dashboard template by propeller created mainly for admin and backend applications.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student Profile</title>
+    <link rel="shortcut icon" type="image/x-icon" href="static/themes/images/favicon.ico">
+    <!-- Google icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Rubik Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
+    <!-- build:remove -->
+    <!--Admin css-->
+    <link rel="stylesheet" type="text/css" href="static/themes/css/bootstrap4-admin-compress.min.css">
+    <!-- /build -->
+    <!-- build:include snippets/css-files-add-employee.html -->
+    <!-- /build -->
+    <!-- build:remove -->
+    <!--Google Analytics code-->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','assets/js/analytics.js','ga');
+
+  ga('create', 'UA-124615-22', 'auto');
+    ga('send', 'pageview');
+</script>
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="employee-detail.html" />
+    <!-- /build -->
+</head>
+
+<body>
+    <!-- Header Starts -->
+    <nav class="navbar navbar-expand-xl fixed-top navbar-light bg-white pmd-navbar pmd-z-depth-light-1">
+        <a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1300" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pmd-sidebar-toggle"><i class="material-icons md-dark">menu</i></a>
+        <!-- Navbar Brand -->
+        <div class="navbar-header">
+            <!-- <a class="navbar-brand" href="dashboard.html">
+           Bootstrap 4 <span>Admin</span>
+        </a> -->
+        </div>
+        <!-- Search Form -->
+        <form class="col-md-6 col-lg-4 d-none d-md-block ml-lg-5 ml-md-2" action="search" method="get">
+            <div class="input-group pmd-search">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="material-icons md-dark pmd-icon-sm">search</i>
+                    </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </form>
+        <!-- Right Menu -->
+        <div class="pmd-navbar-right-icon ml-auto">
+            <div class="nav-item d-inline-block dropdown pmd-dropdown">
+                <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat" id="emailDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i data-badge="{{Em.count}}" class="material-icons pmd-badge pmd-badge-overlap pmd-badge-success md-dark pmd-sm">
+                        mail_outline
+                    </i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right notifications-col" aria-labelledby="emailDropdown">
+                    <div class="card pmd-card mb-0">
+                        <div class="card-header d-flex w-100 justify-content-between pmd-card-border">
+                            <h3 class="pmd-list-title mb-0">Emails</h3>
+                            <a href="inbox.html" class="text-primary"><small>{{Em.count}} New Emails</small></a>
+                        </div>
+                        <div class="list-group pmd-list pmd-list-border">
+                            {% for Em in Em%}
+                            <a class="list-group-item d-flex flex-row" href="Inbox">
+                                <span class="pmd-avatar-list-img">
+                                    <img alt="40x40" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-1.jpg" data-holder-rendered="true">
+                                </span>
+                                <div class="media-body">
+                                    <h3 class="pmd-list-title">{{Em.Title}}</h3>
+                                    <p class="pmd-list-subtitle">{{Em.Description}}</p>
+                                </div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item dropdown pmd-dropdown d-inline-block">
+                <a class="btn btn-sm pmd-btn-fab pmd-btn-flat" href="javascript:void(0);" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i data-badge="{{noti.count}}" class="material-icons pmd-badge pmd-badge-overlap pmd-badge-success md-dark pmd-sm">notifications_none</i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right notifications-col" aria-labelledby="navbarDropdown">
+                    <div class="card pmd-card mb-0">
+                        <div class="card-header d-flex w-100 justify-content-between pmd-card-border">
+                            <h3 class="pmd-list-title mb-0">Notifications</h3>
+                            <a href="notifications.html" class="text-primary"><small>{{noti.count}} New Notifications</small></a>
+                        </div>
+                        <div class="list-group pmd-list pmd-list-border">
+                            {% for noti in noti%}
+                            <a class="list-group-item d-flex flex-row" href="javascript:void(0);">
+                                <span class="pmd-avatar-list-img">
+                                    <img alt="40x40" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-1.jpg" data-holder-rendered="true">
+                                </span>
+                                <div class="media-body">
+                                    <h3 class="pmd-list-title">{{noti.Title}}</h3>
+                                    <p class="pmd-list-subtitle"></p>
+                                </div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Header Ends -->
+    <!-- Sidebar Starts -->
+    <div class="pmd-sidebar-overlay"></div>
+    <!-- Left sidebar -->
+    <aside id="basicSidebar" class="pmd-sidebar pmd-sidebar-dark pmd-sidebar-slide-push pmd-sidebar-open bg-primary pmd-z-depth-light-2" role="navigation">
+        <ul class="nav flex-column pmd-sidebar-nav">
+            <!-- User info -->
+            <li class="nav-item pmd-user-info mb-0">
+                <a href="#" class="nav-link btn-user text-center">
+                    <img class="rounded-circle m-auto" src="{{user.student.Profie.url}}" width="40" height="40" alt="avatar">
+                    <h3 class="pmd-title m-0">Welcome {{request.user.first_name}}</h3>
+                    <!-- <p class="pmd-subheading1 m-0">support@propeller.in</p> -->
+                </a>
+            </li>
+            <!-- End user info -->
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Student_Dashboard">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <svg version="1.1" x="0px" y="0px" width="19.83px" height="18px" viewBox="287.725 407.535 19.83 18" enable-background="new 287.725 407.535 19.83 18" xml:space="preserve">
+                            <g>
+                                <path d="M307.555,407.535h-9.108v10.264h9.108V407.535z M287.725,407.535v6.232h9.109v-6.232H287.725z M296.834,415.271h-9.109v10.264h9.109V415.271z M307.555,419.303h-9.108v6.232h9.108V419.303z" />
+                            </g>
+                        </svg>
+                    </i>
+                    <span class="media-body">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Student_Profile">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        web
+                    </i>
+                    <span class="media-body">Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Academics">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        web
+                    </i>
+                    <span class="media-body">Academics</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Area_of_Interest">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        web
+                    </i>
+                    <span class="media-body">Area Of Interest</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Notifications">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        notifications
+                    </i>
+                    <span class="media-body">Notifications</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Inbox">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        inbox
+                    </i>
+                    <span class="media-body">Inbox</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Account_Settings">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        settings
+                    </i>
+                    <span class="media-body">Account Settings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout">
+                    <i class="material-icons pmd-list-icon pmd-sm">power_settings_new</i>
+                    <span class="media-body">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- End Left sidebar -->
+    <!-- Sidebar Ends -->
+    <!--content area start-->
+    <div id="content" class="pmd-content admin section-container">
+        <!-- Title -->
+        <h1>Student Profile</h1>
+        <!-- End Title -->
+        <!--breadcrum start-->
+        <!--breadcrum end-->
+        <div class="page-content">
+            <div class="pmd-tabs pmd-tabs-dark bg-primary">
+                <ul class="nav nav-tabs" role="tablist" style="width: 343.813px;">
+                    <li class="nav-item"><a class="nav-link active" href="#about" aria-controls="about" role="tab" data-toggle="tab">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#documents" aria-controls="documents" role="tab" data-toggle="tab">Area of Intrest</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#salary" aria-controls="salary" role="tab" data-toggle="tab">Salary</a></li> -->
+                </ul>
+            </div>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- About Tab -->
+                <div role="tabpanel" class="tab-pane active" id="about">
+                    <div class="card pmd-card">
+                        <form method="post" action="Student_Profile" enctype="multipart/form-data"> {% csrf_token%}
+                            <div class="card-body">
+                                <!-- Upload Picture -->
+                               <div class="details-tab" style="margin-left: 25px;">
+                                    <h3 class="card-title mb-3">Profile Picture</h3>
+                                    <div data-provides="fileinput" class="fileinput fileinput-new">
+                                        <div data-trigger="fileinput" class="fileinput-preview thumbnail img-fluid rounded-circle mb-0">
+                                            <img src="{{data.Profile.url}}" style="height: 200px;   width: 200px;" alt="profile avatar">
+                                        </div>
+                                        <div class="action-button">
+                                            <span class="btn btn-secondary pmd-btn-fab btn-sm pmd-btn-raised btn-file pmd-ripple-effect">
+                                                <span class="fileinput-new"><i class="material-icons pmd-xs">add</i></span>
+                                                <span class="fileinput-exists"><i class="material-icons pmd-xs">mode_edit</i></span>
+                                                <input type="file" name="picture" required>
+                                            </span>
+                                            <a data-dismiss="fileinput" class="btn btn-danger btn-sm pmd-btn-fab pmd-ripple-effect pmd-btn-raised btn-file fileinput-exists" href="javascript:void(0);"><i class="material-icons pmd-sm">close</i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Basic Information -->
+                                <div class="details-tab">
+                                    <h3 class="card-title">Basic Information</h3>
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 col-md-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="fn" class="col-form-label control-label">First Name</label>
+                                                <input type="text" name="fn" class="form-control" value="{{user.student.First_Name}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="mn" class="col-form-label control-label">Middle Name</label>
+                                                {%if user.student.Middle_Name is None%}
+                                                <input type="text" name="mn" class="form-control">
+                                                {%else%}
+                                                <input type="text"  class="form-control" value="{{user.student.Middle_Name}}">
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="ln" class="col-form-label control-label">Last Name</label>
+                                                <input type="text" name="ln" class="form-control" value="{{user.student.Last_Name}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-6">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="phone" class="col-form-label control-label">Phone</label>
+                                                <input type="tel" name="phone" class="form-control" value="{{user.student.Mobile}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-6">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="personal-email" class="col-form-label control-label">Personal Email</label>
+                                                <input type="email" name="email" class="form-control" value="{{user.student.Email}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-6">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                                <label for="dob" class="col-form-label control-label">Birth Date</label>
+                                                {%if user.student.DOB is None%}
+                                                <input type="date" name="dob" class="form-control">
+                                                {%else%}
+                                                <input type="text"  class="form-control" value="{{user.student.DOB}}">
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="addline2" class="col-form-label control-label">Gender</label>
+                                                {%if user.student.Gender is None%}
+                                                <div class="custom-control custom-radio pmd-radio custom-control-inline">
+                                                    <input type="radio" id="male" value="Male" name="gender" class="custom-control-input" required>
+                                                    <label class="custom-control-label pmd-radio-ripple-effect" for="male">Male</label>
+                                                </div>
+                                                <div class="custom-control custom-radio pmd-radio custom-control-inline">
+                                                    <input type="radio" id="female" value="Female" name="gender" class="custom-control-input" required>
+                                                    <label class="custom-control-label pmd-radio-ripple-effect" for="female">Female</label>
+                                                </div>
+                                                {%else%}
+                                                <input type="text"  value="{{user.student.Gender}}" class="form-control">
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="fb" class="col-form-label control-label">Facebook Profile</label>
+                                                {%if user.student.Facebook_Profile is None%}
+                                                <input type="text" name="fb" class="form-control" value="" id="fb">
+                                                {%else%}
+                                                <input type="text" name="fb" class="form-control" value="{{user.student.Facebook_Profile}}">
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="linkedin" class="col-form-label control-label">LinkedIn Profile</label>
+                                                {%if user.student.Linkedin is None%}
+                                                <input type="text" name="linkd" class="form-control">
+                                                {%else%}
+                                                <input type="text" name="linkd" class="form-control" value="{{user.student.Linkedin}}" id="linkedin">
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="twitter" class="col-form-label control-label">Twitter Profile</label>
+                                                {%if user.student.Twitter_Profile is None%}
+                                                <input type="text" name="tweet" class="form-control" id="twitter">
+                                                {%else%}
+                                                <input type="text" name="tweet" class="form-control" value="{{user.student.Twitter_Profile}}">
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Employee Information -->
+                                <!-- Contact Information -->
+                                <div class="details-tab">
+                                    <h3 class="card-title">Contact Information</h3>
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="addline1" class="col-form-label control-label">Address Line 1</label>
+                                                {%if user.student.Address_1 is None%}
+                                                <input type="text" name="address1" class="form-control">
+                                                {%else%}
+                                                <input type="text" name="address1" class="form-control" value="{{user.student.Address_1}}">
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="addline2" class="col-form-label control-label">Address Line 2</label>
+                                                {%if user.student.Address_2 is None%}
+                                                <input type="text" name="address2" class="form-control">
+                                                {%else%}
+                                                <input type="text"  value="{{user.student.address_2}}" class="form-control">
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="city" class="col-form-label control-label">City</label>
+                                                {%if user.student.City is None%}
+                                                <input type="text" name="city" class="form-control">
+                                                {%else%}
+                                                <input type="text" name="city" class="form-control" value="{{user.student.City}}">
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="state">State</label>
+                                                {%if user.student.State is None%}
+                                                <input type="text" class="form-control" name="state">
+                                                {%else%}
+                                                <input type="text" class="form-control" name="state" value="{{user.student.State}}">
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                                <label for="zipcode" class="col-form-label control-label">Pin Code</label>
+                                                {%if user.student.Pin_Code is None%}
+                                                <input type="text" class="form-control" name="pin">
+                                                {%else%}
+                                                <input type="text" class="form-control"  value="{{user.student.Pin_Code}}">
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-4">
+                                            <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                <label for="country">Country</label>
+                                                <input type="text" class="form-control" disabled name="country" value="India">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Education Information -->
+                                <!-- Experience Information -->
+                            </div>
+                            <div class="card-footer pmd-card-border">
+                                <input type="submit" value="Save" class="btn btn-primary">
+                                <button class="btn pmd-ripple-effect btn-outline-secondary" type="button">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Documents Tab -->
+                <div role="tabpanel" class="tab-pane" id="documents">
+                    <!-- Documents -->
+                    <div class="card pmd-card">
+                        <div class="card-body">
+                            <div class="d-flex flex-row align-items-center">
+                                <div class="media-body">
+                                    <h3 class="card-title">Student Area of Intrest</h3>
+                                </div>
+                            </div>
+                            <div class="details-tab">
+                                <!-- Documents Table -->
+                                <div class="table-responsive">
+                                    <table class="table pmd-table table-bordered" id="table-propeller">
+                                        {% Show_AOI %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Document Dialog -->
+                <div tabindex="-1" class="modal pmd-modal fade add-dialog" id="add-document-dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header pmd-modal-border">
+                                <h2 class="modal-title">Add Document</h2>
+                                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                        <label for="filename">File Name</label>
+                                        <input type="text" class="mat-input form-control" id="filename" value="">
+                                    </div>
+                                    <div class="custom-file pmd-custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                    </div>
+                                    <div class="mt-4">
+                                        <button data-dismiss="modal" class="btn pmd-ripple-effect btn-primary pmd-btn-raised" type="button">Add</button>
+                                        <button data-dismiss="modal" class="btn pmd-ripple-effect btn-outline-secondary" type="button">Reset</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Salary Tab -->
+        </div>
+    </div>
+    </div>
+    <!-- content area end -->
+    <!-- Footer Starts -->
+    <!-- <footer class="pmd-footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 align-self-center">
+                <div class="pmd-site-info">
+                    © <span class="auto-update-year"></span> A <a href="https://pro.propeller.in/" target="_blank"><strong>Propeller Pro </strong></a> Theme
+                </div>
+            </div>
+        </div>
+    </div>
+</footer> -->
+    <!-- Footer Ends -->
+    <!-- Delete Document Modal -->
+    <div class="modal pmd-modal fade text-center delete-modal" id="delete_document_modal" tabindex="-1" role="dialog" aria-labelledby="delete_employee_label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <i class="material-icons md-danger pmd-icon-circle bg-danger pmd-icon-md"><strong>error_outline</strong></i>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <h2 class="modal-title">Are you sure?</h2>
+                    <p>Do you really want to delete the document details? <br /> This process cannot be undone.</p>
+                    <a href="javascript:void(0);" class="btn btn-outline-dark pmd-btn-raised" title="Cancel" data-dismiss="modal">Cancel</a>
+                    <a href="javascript:void(0);" class="btn btn-primary pmd-btn-raised" title="Delete">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- build:include snippets/js-files-add-employee.html -->
+    <!-- /build -->
+    <!-- build:remove -->
+    <!--Admin js-->
+    <script type="text/javascript" src="static/themes/js/bootstrap4-admin-compress.min.js"></script>
+    <!-- /build -->
+    <script>
+    $(document).ready(function() {
+        var sPath = window.location.pathname;
+        var sPage = sPath.substring(sPath.lastIndexOf('https://themes.propeller.in/') + 1);
+        $(".pmd-sidebar-nav").each(function() {
+            $(this).find("a[href='" + sPage + "']").parents(".collapse").addClass("show");
+            $(this).find("a[href='" + sPage + "']").parents(".collapse").prev('a.nav-link').addClass("active");
+            $(this).find("a[href='" + sPage + "']").addClass("active");
+        });
+        $(".auto-update-year").html(new Date().getFullYear());
+    });
+
+    // Show Hide Edit Basic Info Card
+    $(".edit-basic-card").hide();
+    $("#edit-basic-info").click(function() {
+        $(".edit-basic-card").show();
+        $(".view-basic-card").hide();
+    });
+    $("#view-basic-info").click(function() {
+        $(".view-basic-card").show();
+        $(".edit-basic-card").hide();
+    });
+    $("#reset-basic-info").click(function() {
+        $(".view-basic-card").show();
+        $(".edit-basic-card").hide();
+    });
+
+    // Show Hide Edit Employee Info Card
+    $(".edit-employee-card").hide();
+    $("#edit-employee-info").click(function() {
+        $(".edit-employee-card").show();
+        $(".view-employee-card").hide();
+    });
+    $("#view-employee-info").click(function() {
+        $(".view-employee-card").show();
+        $(".edit-employee-card").hide();
+    });
+    $("#reset-employee-info").click(function() {
+        $(".view-employee-card").show();
+        $(".edit-employee-card").hide();
+    });
+
+    // Show Hide Edit Contact Info Card
+    $(".edit-contact-card").hide();
+    $("#edit-contact-info").click(function() {
+        $(".edit-contact-card").show();
+        $(".view-contact-card").hide();
+    });
+    $("#view-contact-info").click(function() {
+        $(".view-contact-card").show();
+        $(".edit-contact-card").hide();
+    });
+    $("#reset-contact-info").click(function() {
+        $(".view-contact-card").show();
+        $(".edit-contact-card").hide();
+    });
+
+    // Show Hide Edit Salary Info Card
+    $(".edit-salary-card").hide();
+    $("#edit-salary-info").click(function() {
+        $(".edit-salary-card").show();
+        $(".view-salary-card").hide();
+    });
+    $("#view-salary-info").click(function() {
+        $(".view-salary-card").show();
+        $(".edit-salary-card").hide();
+    });
+    $("#reset-salary-info").click(function() {
+        $(".view-salary-card").show();
+        $(".edit-salary-card").hide();
+    });
+
+    //Birthday DatePicker
+    $('#birthdate-picker').datetimepicker({
+        format: 'DD-MM-YYYY'
+    });
+
+    //Joining DatePicker
+    $('#joindate-picker').datetimepicker({
+        format: 'DD-MM-YYYY'
+    });
+
+    // Passing Year
+    $('#passing-year').datetimepicker({
+        viewMode: 'years',
+        format: 'YYYY'
+    });
+
+    // Passing Year
+    $('#edit-passing-year').datetimepicker({
+        viewMode: 'years',
+        format: 'YYYY'
+    });
+
+    // Add Education start date date and time picker 
+    $('#datepicker-start').datetimepicker({
+        format: 'DD-MM-YYYY'
+    });
+
+    // Add Education End date date and time picker 
+    $('#datepicker-end').datetimepicker({
+        useCurrent: false,
+        format: 'DD-MM-YYYY'
+    });
+
+    // start date picker for Add Education
+    $("#datepicker-start").on("dp.change", function(e) {
+        $('#datepicker-end').data("DateTimePicker").minDate(e.date);
+    });
+    // end date picker for Add Education 
+    $("#datepicker-end").on("dp.change", function(e) {
+        $('#datepicker-start').data("DateTimePicker").maxDate(e.date);
+    });
+
+    // edit Education start date date and time picker 
+    $('#edit-datepicker-start').datetimepicker({
+        format: 'DD-MM-YYYY'
+    });
+
+    // edit Education End date date and time picker 
+    $('#edit-datepicker-end').datetimepicker({
+        useCurrent: false,
+        format: 'DD-MM-YYYY'
+    });
+
+    // start date picker for edit Education
+    $("#edit-datepicker-start").on("dp.change", function(e) {
+        $('#edit-datepicker-end').data("DateTimePicker").minDate(e.date);
+    });
+    // end date picker for edit Education
+    $("#edit-datepicker-end").on("dp.change", function(e) {
+        $('#edit-datepicker-start').data("DateTimePicker").maxDate(e.date);
+    });
+
+    // edit experience  start date date and time picker 
+    $('#editexp-datepicker-start').datetimepicker({
+        format: 'DD-MM-YYYY'
+    });
+
+    // edit experience End date date and time picker 
+    $('#editexp-datepicker-end').datetimepicker({
+        useCurrent: false,
+        format: 'DD-MM-YYYY'
+    });
+
+    // edit experience start date picker
+    $("#editexp-datepicker-start").on("dp.change", function(e) {
+        $('#edit-datepicker-end').data("DateTimePicker").minDate(e.date);
+    });
+    // edit experience end date picker
+    $("#editexp-datepicker-end").on("dp.change", function(e) {
+        $('#edit-datepicker-start').data("DateTimePicker").maxDate(e.date);
+    });
+
+    // add experience  start date date and time picker 
+    $('#exp-datepicker-start').datetimepicker({
+        format: 'DD-MM-YYYY'
+    });
+
+    // add experience End date date and time picker 
+    $('#exp-datepicker-end').datetimepicker({
+        useCurrent: false,
+        format: 'DD-MM-YYYY'
+    });
+
+    // add experience start date picker
+    $("#exp-datepicker-start").on("dp.change", function(e) {
+        $('#edit-datepicker-end').data("DateTimePicker").minDate(e.date);
+    });
+    // add experience end date picker
+    $("#exp-datepicker-end").on("dp.change", function(e) {
+        $('#edit-datepicker-start').data("DateTimePicker").maxDate(e.date);
+    });
+
+    // single range slider with default tooltip open
+    var pmdSliderTooltip = document.getElementById('pmd-slider-tooltip');
+    noUiSlider.create(pmdSliderTooltip, {
+        start: [7],
+        connect: 'lower',
+        tooltips: [wNumb({ decimals: 0 })],
+        range: {
+            'min': [0],
+            'max': [10]
+        }
+    });
+    </script>
+    <!-- Scripts Ends -->
+</body>
+<!-- Mirrored from themes.propeller.in/bootstrap4/html/bootstrap4-admin-theme/employee-detail.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 May 2021 16:48:53 GMT -->
+
+</html>

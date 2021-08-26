@@ -1,0 +1,516 @@
+<!doctype html>
+{% load college_list%}
+<html lang="en-US">
+<!-- Mirrored from themes.propeller.in/bootstrap4/html/bootstrap4-admin-theme/employee-list-grid-view.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 May 2021 16:48:43 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Employee list page template. Bootstrap 4 Admin HTML Theme is a material design and bootstrap 4 based responsive dashboard template by propeller created mainly for admin and backend applications.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap 4 Admin HTML Theme - Employee List Page Template</title>
+    <link rel="shortcut icon" type="image/x-icon" href="static/themes/images/favicon.ico">
+    <!-- Google icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Rubik Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
+    <!-- build:remove -->
+    <!--Admin css-->
+    <link rel="stylesheet" type="text/css" href="static/themes/css/bootstrap4-admin-compress.min.css">
+    <!-- /build -->
+    <!-- build:include snippets/css-files-apply-leave.html -->
+    <!-- /build -->
+    <!-- build:remove -->
+    <!--Google Analytics code-->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','assets/js/analytics.js','ga');
+
+  ga('create', 'UA-124615-22', 'auto');
+    ga('send', 'pageview');
+</script>
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="employee-list-grid-view.html" />
+    <!-- /build -->
+</head>
+
+<body>
+    <!-- Header Starts -->
+    <nav class="navbar navbar-expand-xl fixed-top navbar-light bg-white pmd-navbar pmd-z-depth-light-1">
+        <a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1300" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pmd-sidebar-toggle"><i class="material-icons md-dark">menu</i></a>
+        <!-- Navbar Brand -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="dashboard.html">
+                <!-- Bootstrap 4 <span>Admin</span> -->
+            </a>
+        </div>
+        <!-- Search Form -->
+        <form class="col-md-6 col-lg-4 d-none d-md-block ml-lg-5 ml-md-2" action="search" method="get"> 
+            <div class="input-group pmd-search">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="material-icons md-dark pmd-icon-sm"></i>
+                    </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </form>
+        <!-- Right Menu -->
+        <div class="pmd-navbar-right-icon ml-auto">
+        <div class="nav-item d-inline-block dropdown pmd-dropdown">
+            <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat" id="emailDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-badge="{{bbb.count}}" class="material-icons pmd-badge pmd-badge-overlap pmd-badge-success md-dark pmd-sm">
+                    mail_outline
+                </i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right notifications-col" aria-labelledby="emailDropdown">
+                <div class="card pmd-card mb-0">
+                    <div class="card-header d-flex w-100 justify-content-between pmd-card-border">
+                        <h3 class="pmd-list-title mb-0">Emails</h3>
+                        <a href="inbox.html" class="text-primary"><small>{{bbb.count}} New Emails</small></a>
+                    </div>
+                    <div class="list-group pmd-list pmd-list-border">
+                        {% for bbb in bbb%}
+                        <a class="list-group-item d-flex flex-row"  href="inbox-detail.html">
+                            <span class="pmd-avatar-list-img">
+                                <img alt="40x40" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-1.jpg" data-holder-rendered="true">
+                            </span>
+                            <div class="media-body">
+                                <h3 class="pmd-list-title">{{bbb.Title}}</h3>
+                                <p class="pmd-list-subtitle">{{bbb.Description}}</p>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-item dropdown pmd-dropdown d-inline-block">
+            <a class="btn btn-sm pmd-btn-fab pmd-btn-flat" href="javascript:void(0);" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i data-badge="{{aaa.count}}" class="material-icons pmd-badge pmd-badge-overlap pmd-badge-success md-dark pmd-sm">notifications_none</i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right notifications-col" aria-labelledby="navbarDropdown">
+                <div class="card pmd-card mb-0">
+                    <div class="card-header d-flex w-100 justify-content-between pmd-card-border">
+                        <h3 class="pmd-list-title mb-0">Notifications</h3>
+                        <a href="notifications.html" class="text-primary"><small>{{aaa.count}} New Notifications</small></a>
+                    </div>
+
+                    <div class="list-group pmd-list pmd-list-border">
+                        {% for aaa in aaa %}
+                        <a class="list-group-item d-flex flex-row"  href="javascript:void(0);">
+                            <span class="pmd-avatar-list-img">
+                                <img alt="40x40" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-1.jpg" data-holder-rendered="true">
+                            </span>
+                            
+                            <div class="media-body">
+                                
+                                <h3 class="pmd-list-title"><span>{{aaa.Title}}</h3>
+                                <p class="pmd-list-subtitle">{{aaa.Description}}</p>
+                                
+                            </div>
+
+                        </a>
+                        {% endfor %}
+                        
+                        
+
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </nav>
+    <!-- Header Ends -->
+    <!-- Sidebar Starts -->
+    <div class="pmd-sidebar-overlay"></div>
+    <!-- Left sidebar -->
+    <aside id="basicSidebar" class="pmd-sidebar pmd-sidebar-dark pmd-sidebar-slide-push pmd-sidebar-open bg-primary pmd-z-depth-light-2" role="navigation">
+        <ul class="nav flex-column pmd-sidebar-nav">
+            <li class="nav-item pmd-user-info mb-0">
+                <a href="#" class="nav-link btn-user text-center">
+                    <img class="rounded-circle m-auto" src="{{user.member.profile.url}}" width="40" height="40" alt="avatar">
+                    <h3 class="pmd-title m-0">Welcome {{request.user.first_name}}</h3>
+                </a>
+            </li>
+            <!-- End user info -->
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Member_Dashboard">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <svg version="1.1" x="0px" y="0px" width="19.83px" height="18px" viewBox="287.725 407.535 19.83 18" enable-background="new 287.725 407.535 19.83 18" xml:space="preserve">
+                            <g>
+                                <path d="M307.555,407.535h-9.108v10.264h9.108V407.535z M287.725,407.535v6.232h9.109v-6.232H287.725z M296.834,415.271h-9.109v10.264h9.109V415.271z M307.555,419.303h-9.108v6.232h9.108V419.303z" />
+                            </g>
+                        </svg>
+                    </i>
+                    <span class="media-body">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Member_Profile">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <!-- web -->
+                    </i>
+                    <span class="media-body">Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Add_College_or_University">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <!-- web -->
+                    </i>
+                    <span class="media-body">Add College/University</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="College_University_List">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <!-- web -->
+                    </i>
+                    <span class="media-body">College/University List</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Student_Enroll">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <!-- web -->
+                    </i>
+                    <span class="media-body">Student Enrollment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Member_Inbox">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <!-- inbox -->
+                    </i>
+                    <span class="media-body">Inbox</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Member_Account_Settings">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <!-- settings -->
+                    </i>
+                    <span class="media-body">Account Settings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Member_logout">
+                    <!-- <i class="material-icons pmd-list-icon pmd-sm">power_settings_new</i> -->
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                    </i>
+                    <span class="media-body">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- End Left sidebar -->
+    <!-- Sidebar Ends -->
+    <!--content area start-->
+    <div id="content" class="pmd-content inner-page admin">
+        <div class="d-flex align-items-center pb-3">
+            <div>
+                <!-- Title -->
+                <h1>College Details</h1>
+                <!-- End Title -->
+                <!--breadcrum start-->
+                <!-- <nav aria-label="breadcrumb">
+                <ol class="breadcrumb pmd-breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Employees</li>
+                </ol>
+            </nav> -->
+                <!--breadcrum end-->
+            </div>
+            <!-- Right Buttons -->
+            <!-- <div class="ml-auto d-flex">
+            <ul class="nav nav-tabs border-0">
+                <li class="nav-item mr-2">
+                    <a title="Grid View" class="btn pmd-btn-fab pmd-ripple-effect nav-link active btn-sm btn-outline-dark" href="#gridView" aria-controls="gridView" role="tab" data-toggle="tab">
+                        <i class="material-icons">apps</i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a title="List View" class="btn btn-outline-dark pmd-btn-fab pmd-ripple-effect nav-link btn-sm" href="#listView" aria-controls="listView" role="tab" data-toggle="tab">
+                        <i class="material-icons">format_list_bulleted</i>
+                    </a>
+                </li>
+            </ul>
+        </div> -->
+            <!-- Right Buttons End -->
+        </div>
+        <section class="component-section" id="employee">
+            <div class="card pmd-card">
+                <div class="search-bar card-body">
+                    <div class="row d-flex align-items-center">
+                        <div class="col">
+                            <!-- Form Component -->
+                            <div class="d-md-block d-none">
+                                <form class="search-form" style="margin-top: -10px;">
+                                    <div class="form-row">
+                                        <div class="col-md-5 col-lg-4">
+                                            <div class="input-group pmd-input-group pmd-input-group-icon mb-0">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <i class="material-icons md-dark pmd-sm"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="pmd-textfield pmd-textfield-floating-label">
+                                                    <label for="search-field">Search by University</label>
+                                                    <input type="text" class="form-control" id="search-field" aria-describedby="search-field">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group pmd-textfield pmd-textfield-floating-label col-md-3 mb-0">
+                                            <label>Stream</label>
+                                            <select name="select" id="designation" class="form-control">
+                                                <option disabled> </option>
+                                                {% for strm in strm %}
+                                                <option>{{strm.name}}</option>
+                                                {% endfor%}
+                                            </select>
+                                        </div>
+                                        <div class="form-group pmd-textfield pmd-textfield-floating-label col-md-3 mb-0">
+                                            <label for="department">Course</label>
+                                            <select name="select" id="department" class="form-control">
+                                                <option disabled></option>
+                                                {% for cor in cor %}
+                                                <option>{{cor.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="col-md-1 col-lg-2 mt-4">
+                                            <button class="btn btn-primary pmd-ripple-effect pmd-btn-raised" id="search">Go</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <h3 class="card-title advanced-search-title mb-0">Advanced Search</h3>
+                            </div>
+                            <!-- Form Component End -->
+                            <!-- Mobile Search -->
+                            <!-- Form Component (Form Inline) -->
+                      
+                       
+                    </div>
+                </div>
+                {% show_lists%}
+        </section>
+    </div>
+    <!-- content area end -->
+    <!-- Footer Starts -->
+    <footer class="pmd-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 align-self-center">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Ends -->
+    <div class="menu list-view pmd-floating-action" role="navigation">
+        <a class="pmd-floating-action-btn btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-secondary" data-title="Add College or University" href="Add_College_or_University">
+            <i class="material-icons pmd-sm">add</i>
+        </a>
+    </div>
+    <!-- Delete Employee Modal -->
+    <div class="modal pmd-modal fade text-center delete-modal" id="delete_employee_modal" tabindex="-1" role="dialog" aria-labelledby="delete_employee_label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <h2 class="modal-title">Are you sure?</h2>
+                    <p>Do you really want to delete the employee details? <br /> This process cannot be undone.</p>
+                    <a href="javascript:void(0);" class="btn btn-outline-dark pmd-btn-raised" title="Cancel" data-dismiss="modal">Cancel</a>
+                    <a href="javascript:void(0);" class="btn btn-primary pmd-btn-raised" title="Delete">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Advance Search Modal -->
+    <div class="modal pmd-modal fade add-dialog" id="advanced-search-modal" tabindex="-1" role="dialog" aria-labelledby="advanced-search-modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header pmd-modal-border">
+                    <h2 class="modal-title">Advanced Search</h2>
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <div class="row mt-2">
+                        <div class="col-12 col-md-4">
+                            <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                <label for="employee_ID">Employee ID</label>
+                                <input type="text" class="form-control" name="employee_ID">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                <label for="phone">Phone</label>
+                                <input type="text" class="form-control" name="phone" id="phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                <label for="advance_department">Department</label>
+                                <select name="select" id="advance_department" class="form-control">
+                                    <option></option>
+                                    <option>Design</option>
+                                    <option>Development</option>
+                                    <option>Marketing</option>
+                                    <option>Sales</option>
+                                    <option>Quality Assurance</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                <label for="advance_designation">Department</label>
+                                <select name="select" id="advance_designation" class="form-control">
+                                    <option></option>
+                                    <option>Product Designer</option>
+                                    <option>UI/UX Designer</option>
+                                    <option>PHP Developer</option>
+                                    <option>Mobile App Developer</option>
+                                    <option>Quality Tester</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                <label for="reporting">Reporting Employee</label>
+                                <select name="select" id="reporting" class="form-control">
+                                    <option></option>
+                                    <option>John L. Wade</option>
+                                    <option>Lolita M. Bradley</option>
+                                    <option>Kenneth R. Brooks</option>
+                                    <option>Joseph S. Richardson</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-12 col-md-4">
+                            <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                <label for="date-of-joining">Date of Joining</label>
+                                <input type="text" class="form-control" id="datepicker">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="type" class="d-block title-label">Type of Employee</label>
+                            <div class="custom-control custom-radio pmd-radio custom-control-inline">
+                                <input type="radio" id="full-time-1" name="type" class="custom-control-input">
+                                <label class="custom-control-label pmd-radio-ripple-effect" for="full-time-1">Full Time</label>
+                            </div>
+                            <div class="custom-control custom-radio pmd-radio custom-control-inline">
+                                <input type="radio" id="part-time-1" name="type" class="custom-control-input">
+                                <label class="custom-control-label pmd-radio-ripple-effect" for="part-time-1">Part Time</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="type" class="d-block title-label">Gender</label>
+                            <div class="custom-control custom-radio pmd-radio custom-control-inline">
+                                <input type="radio" id="male-1" name="gender" class="custom-control-input">
+                                <label class="custom-control-label pmd-radio-ripple-effect" for="male-1">Male</label>
+                            </div>
+                            <div class="custom-control custom-radio pmd-radio custom-control-inline">
+                                <input type="radio" id="female-1" name="gender" class="custom-control-input">
+                                <label class="custom-control-label pmd-radio-ripple-effect" for="female-1">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="employee-list-grid-view.html" title="Apply Filter" class="btn-primary btn pmd-btn-raised pmd-ripple-effect" id="apply-filter">Apply Filter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Advance Search Modal End -->
+    <!-- Sort Modal -->
+    <div tabindex="-1" class="modal pmd-modal fade add-dialog" id="sort-modal" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header pmd-modal-border">
+                    <h2 class="modal-title">Sort By</h2>
+                    <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="custom-control custom-radio pmd-radio">
+                        <input class="custom-control-input" type="radio" value="" id="Name">
+                        <label class="custom-control-label pmd-radio-ripple-effect" for="Name">
+                            Name
+                        </label>
+                    </div>
+                    <div class="custom-control custom-radio pmd-radio">
+                        <input class="custom-control-input" type="radio" value="" id="Department">
+                        <label class="custom-control-label pmd-radio-ripple-effect" for="Department">
+                            Department
+                        </label>
+                    </div>
+                    <div class="custom-control custom-radio pmd-radio">
+                        <input class="custom-control-input" type="radio" value="" id="Date-of-Joining">
+                        <label class="custom-control-label pmd-radio-ripple-effect" for="Date-of-Joining">
+                            Date of Joining
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- build:include snippets/js-files-apply-leave.html -->
+    <!-- /build -->
+    <!-- build:remove -->
+    <!--Admin js-->
+    <script type="text/javascript" src="static/themes/js/bootstrap4-admin-compress.min.js"></script>
+    <!-- /build -->
+    <script>
+    $(document).ready(function() {
+        var sPath = window.location.pathname;
+        var sPage = sPath.substring(sPath.lastIndexOf('https://themes.propeller.in/') + 1);
+        $(".pmd-sidebar-nav").each(function() {
+            $(this).find("a[href='" + sPage + "']").parents(".collapse").addClass("show");
+            $(this).find("a[href='" + sPage + "']").parents(".collapse").prev('a.nav-link').addClass("active");
+            $(this).find("a[href='" + sPage + "']").addClass("active");
+        });
+
+        $(".auto-update-year").html(new Date().getFullYear());
+    });
+    </script>
+    <script type="text/javascript">
+    // Advanced Search Toggle
+    $("#advanced-search-toggler").click(function() {
+        $(".search-form").toggle();
+        $(".advanced-search-title").toggle();
+    });
+
+    // Filter Tags Toggle
+    $("#apply-filter").click(function() {
+        $(".filter-tags").show();
+    });
+
+    // Date of Joining Datepicker
+    $('#datepicker').datetimepicker({
+        format: 'DD-MM-YYYY'
+    });
+    </script>
+    <!-- Scripts Ends -->
+</body>
+<!-- Mirrored from themes.propeller.in/bootstrap4/html/bootstrap4-admin-theme/employee-list-grid-view.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 May 2021 16:48:50 GMT -->
+
+</html>

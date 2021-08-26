@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en-US">
+<!-- Mirrored from themes.propeller.in/bootstrap4/html/bootstrap4-admin-theme/email-templates.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 May 2021 16:49:02 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Email templates. Bootstrap 4 Admin HTML Theme is a material design and bootstrap 4 based responsive dashboard template by propeller created mainly for admin and backend applications.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Academics</title>
+    <link rel="shortcut icon" type="image/x-icon" href="static/themes/images/favicon.ico">
+    <!-- Google icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Rubik Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
+    <!-- build:remove -->
+    <!--Admin css-->
+    <link rel="stylesheet" type="text/css" href="static/themes/css/bootstrap4-admin-compress.min.css">
+    <!-- /build -->
+    <!-- build:include snippets/css-files-404.html -->
+    <style>
+        .MultiCheckBox {
+            border:1px solid #e2e2e2;
+            padding: 5px;
+            border-radius:1rem;
+            cursor:pointer;
+        }
+
+        .MultiCheckBox .k-icon{ 
+            font-size: 15px;
+            float: right;
+            font-weight: bolder;
+            margin-top: -7px;
+            height: 10px;
+            width: 14px;
+            color:#787878;
+        } 
+
+        .MultiCheckBoxDetail {
+            display:none;
+            position:absolute;
+            border:1px solid #e2e2e2;
+            overflow-y:hidden;
+
+        }
+
+        .MultiCheckBoxDetailBody {
+            overflow-y:scroll;
+        }
+
+            .MultiCheckBoxDetail .cont  {
+                clear:both;
+                overflow: hidden;
+                padding: 2px;
+            }
+
+            .MultiCheckBoxDetail .cont:hover  {
+                background-color:#cfcfcf;
+            }
+
+            .MultiCheckBoxDetailBody > div > div {
+                float:left;
+            }
+
+        .MultiCheckBoxDetail>div>div:nth-child(1) {
+        
+        }
+
+        .MultiCheckBoxDetailHeader {
+            overflow:hidden;
+            position:relative;
+            height: 28px;
+            background-color:#3d3d3d;
+        }
+
+            .MultiCheckBoxDetailHeader>input {
+                position: absolute;
+                top: 4px;
+                left: 3px;
+            }
+
+            .MultiCheckBoxDetailHeader>div {
+                position: absolute;
+                top: 5px;
+                left: 24px;
+                color:#fff;
+            }
+    </style>
+    <!-- /build -->
+    <!-- build:remove -->
+    <!--Google Analytics code-->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','assets/js/analytics.js','ga');
+
+  ga('create', 'UA-124615-22', 'auto');
+    ga('send', 'pageview');
+</script>
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="email-templates.html" />
+    <!-- /build -->
+</head>
+
+<body>
+    <!-- Header Starts -->
+    <nav class="navbar navbar-expand-xl fixed-top navbar-light bg-white pmd-navbar pmd-z-depth-light-1">
+        <a href="javascript:void(0);" data-target="basicSidebar" data-placement="left" data-position="slidepush" is-open="true" is-open-width="1300" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pmd-sidebar-toggle"><i class="material-icons md-dark">menu</i></a>
+        <!-- Navbar Brand -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="Member_Dashboard">
+                <!-- Bootstrap 4 <span>Admin</span> -->
+            </a>
+        </div>
+        <!-- Search Form -->
+        <form class="col-md-6 col-lg-4 d-none d-md-block ml-lg-5 ml-md-2" action="search" method="get"> 
+            <div class="input-group pmd-search">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="material-icons md-dark pmd-icon-sm">search</i>
+                    </span>
+                </div>
+                <input type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </form>
+        <!-- Right Menu -->
+        <div class="pmd-navbar-right-icon ml-auto">
+            <div class="nav-item d-inline-block dropdown pmd-dropdown">
+                <a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat" id="emailDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i data-badge="{{bbb.count}}" class="material-icons pmd-badge pmd-badge-overlap pmd-badge-success md-dark pmd-sm">
+                        mail_outline
+                    </i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right notifications-col" aria-labelledby="emailDropdown">
+                    <div class="card pmd-card mb-0">
+                        <div class="card-header d-flex w-100 justify-content-between pmd-card-border">
+                            <h3 class="pmd-list-title mb-0">Emails</h3>
+                            <a href="inbox.html" class="text-primary"><small>{{bbb.count}} New Emails</small></a>
+                        </div>
+                        <div class="list-group pmd-list pmd-list-border">
+                            {% for bbb in bbb%}
+                            <a class="list-group-item d-flex flex-row" href="inbox-detail.html">
+                                <span class="pmd-avatar-list-img">
+                                    <img alt="40x40" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-1.jpg" data-holder-rendered="true">
+                                </span>
+                                <div class="media-body">
+                                    <h3 class="pmd-list-title">{{bbb.Title}}</h3>
+                                    <p class="pmd-list-subtitle">{{bbb.Description}}</p>
+                                </div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item dropdown pmd-dropdown d-inline-block">
+                <a class="btn btn-sm pmd-btn-fab pmd-btn-flat" href="javascript:void(0);" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i data-badge="{{aaa.count}}" class="material-icons pmd-badge pmd-badge-overlap pmd-badge-success md-dark pmd-sm">notifications_none</i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right notifications-col" aria-labelledby="navbarDropdown">
+                    <div class="card pmd-card mb-0">
+                        <div class="card-header d-flex w-100 justify-content-between pmd-card-border">
+                            <h3 class="pmd-list-title mb-0">Notifications</h3>
+                            <a href="notifications.html" class="text-primary"><small>{{aaa.count}} New Notifications</small></a>
+                        </div>
+                        <div class="list-group pmd-list pmd-list-border">
+                            {% for aaa in aaa %}
+                            <a class="list-group-item d-flex flex-row" href="javascript:void(0);">
+                                <span class="pmd-avatar-list-img">
+                                    <img alt="40x40" data-src="holder.js/40x40" class="img-fluid" src="static/themes/images/profile-1.jpg" data-holder-rendered="true">
+                                </span>
+                                <div class="media-body">
+                                    <h3 class="pmd-list-title"><span>{{aaa.Title}}</h3>
+                                    <p class="pmd-list-subtitle">{{aaa.Description}}</p>
+                                </div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Header Ends -->
+    <!-- Sidebar Starts -->
+    <div class="pmd-sidebar-overlay"></div>
+    <!-- Left sidebar -->
+    <aside id="basicSidebar" class="pmd-sidebar pmd-sidebar-dark pmd-sidebar-slide-push pmd-sidebar-open bg-primary pmd-z-depth-light-2" role="navigation">
+        <ul class="nav flex-column pmd-sidebar-nav">
+            <!-- User info -->
+            <li class="nav-item pmd-user-info mb-0">
+                <a href="#" class="nav-link btn-user text-center">
+                    <img class="rounded-circle m-auto" src="{{user.member.profile.url}}" width="40" height="40" alt="avatar">
+                    <h3 class="pmd-title m-0">Welcome {{request.user.first_name}}</h3>
+                </a>
+            </li>
+            <!-- End user info -->
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Member_Dashboard">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <svg version="1.1" x="0px" y="0px" width="19.83px" height="18px" viewBox="287.725 407.535 19.83 18" enable-background="new 287.725 407.535 19.83 18" xml:space="preserve">
+                            <g>
+                                <path d="M307.555,407.535h-9.108v10.264h9.108V407.535z M287.725,407.535v6.232h9.109v-6.232H287.725z M296.834,415.271h-9.109v10.264h9.109V415.271z M307.555,419.303h-9.108v6.232h9.108V419.303z" />
+                            </g>
+                        </svg>
+                    </i>
+                    <span class="media-body">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Member_Profile">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <!-- web -->
+                    </i>
+                    <span class="media-body">Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Add_College_or_University">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <!-- web -->
+                    </i>
+                    <span class="media-body">Add College/University</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="College_University_List">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <!-- web -->
+                    </i>
+                    <span class="media-body">College/University List</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Student_Enroll">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <!-- web -->
+                    </i>
+                    <span class="media-body">Student Enrollment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Member_Inbox">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <!-- inbox -->
+                    </i>
+                    <span class="media-body">Inbox</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link pmd-ripple-effect" href="Member_Account_Settings">
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                        <!-- settings -->
+                    </i>
+                    <span class="media-body">Account Settings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Member_logout">
+                    <!-- <i class="material-icons pmd-list-icon pmd-sm">power_settings_new</i> -->
+                    <i class="material-icons pmd-list-icon pmd-sm md-light">
+                    </i>
+                    <span class="media-body">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- End Left sidebar -->
+    <!-- Sidebar Ends -->
+    <!--content area start-->
+    <div id="content" class="pmd-content admin section-container">
+        <!-- Title -->
+        <h1>College/University</h1>
+        <!-- End Title -->
+        <!--breadcrum start-->
+        <!--breadcrum end-->
+        <div class="page-content">
+            <div class="pmd-tabs pmd-tabs-dark bg-primary">
+                <ul class="nav nav-tabs" role="tablist" style="width: 343.813px;">
+                    <li class="nav-item"><a class="nav-link active" href="#" aria-controls="about" role="tab" data-toggle="tab">Add College/University</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#documents" aria-controls="documents" role="tab" data-toggle="tab">Documents</a></li> -->
+                    <!-- <li class="nav-item"><a class="nav-link" href="#salary" aria-controls="salary" role="tab" data-toggle="tab">Salary</a></li> -->
+                </ul>
+            </div>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- About Tab -->
+                <div role="tabpanel" class="tab-pane active" id="about">
+                    <div class="card pmd-card">
+                        <form method="post" action="Add_College_or_University" enctype="multipart/form-data"> {% csrf_token %}
+                            <div class="card-body">
+                                <!-- Upload Picture -->
+                                <div class="details-tab" style="margin-left: 25px;">
+                                    <h3 class="card-title mb-3">College Profile </h3>
+                                    <div data-provides="fileinput" class="fileinput fileinput-new">
+                                        <div data-trigger="fileinput" class="fileinput-preview thumbnail img-fluid rounded-circle mb-0">
+                                        </div>
+                                        <div class="action-button">
+                                            <span class="btn btn-secondary pmd-btn-fab btn-sm pmd-btn-raised btn-file pmd-ripple-effect">
+                                                <span class="fileinput-new"><i class="material-icons pmd-xs">add</i></span>
+                                                <span class="fileinput-exists"><i class="material-icons pmd-xs">mode_edit</i></span>
+                                                <input type="file" name="abcd" required>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Title -->
+                                <!-- <h1 >Academics</h1> -->
+                                <!-- End Title -->
+                                <!--breadcrum start-->
+                                <!--breadcrum end-->
+                                <div class="page-content">
+                                    <!-- Tab panes -->
+                                    <div class="tab-content">
+                                        <!-- About Tab -->
+                                        <div role="tabpanel" class="tab-pane active" id="about">
+                                            <div class="card pmd-card">
+                                                <div class="card-body">
+                                                    <!-- Upload Picture -->
+                                                    <!-- Basic Information -->
+                                                    <!-- Employee Information -->
+                                                    <div class="details-tab">
+                                                        <!-- <h3 class="card-title">Employee Information</h3> -->
+                                                        <div class="row">
+                                                            <div class="col-12 col-md-12 col-lg-12">
+                                                                <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                                    <label for="id" class="col-form-label control-label">College/ University Name</label>
+                                                                    <input type="text" name="col" class="form-control" value="" id="id" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="container col-12 col-md-12 col-lg-12 col-sm-12" style="padding-bottom: 200px;">
+                                                                
+                                                                    <select id="test1" name="Stream" required>
+                                                                        {%for strm in strm%}
+                                                                        <option value="{{strm.name}}">{{strm.name}}</option>
+                                                                        {%endfor%}
+                                                                    </select>
+                                                                </div>
+                                                            
+                                                                <div class="container col-12 col-sm-12 col-md-12 col-lg-12">
+                                                                    <select id="test" name="Course" required>
+                                                                        {%for cor in cor%}
+                                                                        <option value="{{cor.name}}">{{cor.name}}</option>
+                                                                        {%endfor%}
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="details-tab" style="margin-top: 150px;">
+                                                        <!-- Contact Information -->
+                                                        <div class="details-tab">
+                                                            <h3 class="card-title">Contact Information</h3>
+                                                            <div class="row">
+                                                                <div class="col-12 col-md-6 col-lg-4">
+                                                                    <div class="form-group pmd-textfield pmd-textfield-floating-label ">
+                                                                        <label for="city" class="col-form-label control-label">City</label>
+                                                                        <input type="text" name="City" class="form-control" value="" id="city" required>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 col-md-6 col-lg-4">
+                                                                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                                                                        <label for="pincode" class="col-form-label control-label">Pin Code</label>
+                                                                        <input type="text" name="pin" class="form-control" value="" id="pincode" required>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Education Information -->
+                                                    </div>
+                                                    <div class="card-footer pmd-card-border">
+                                                        <input type="submit" class="btn pmd-ripple-effect btn-outline-secondary" value="Save">
+                                                        <button class="btn pmd-ripple-effect btn-outline-secondary" type="button">Reset</button>
+                                                    </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="static/themes/js/bootstrap4-admin-compress.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+    $(document).ready(function() {
+        $("#test").CreateMultiCheckBox({ width: '240px', defaultText: 'Course', height: '165px' });
+    });
+
+    $(document).ready(function() {
+        $(document).on("click", ".MultiCheckBox", function() {
+            var detail = $(this).next();
+            detail.show();
+        });
+
+        $(document).on("click", ".MultiCheckBoxDetailHeader input", function(e) {
+            e.stopPropagation();
+            var hc = $(this).prop("checked");
+            $(this).closest(".MultiCheckBoxDetail").find(".MultiCheckBoxDetailBody input").prop("checked", hc);
+            $(this).closest(".MultiCheckBoxDetail").next().UpdateSelect();
+        });
+
+        $(document).on("click", ".MultiCheckBoxDetailHeader", function(e) {
+            var inp = $(this).find("input");
+            var chk = inp.prop("checked");
+            inp.prop("checked", !chk);
+            $(this).closest(".MultiCheckBoxDetail").find(".MultiCheckBoxDetailBody input").prop("checked", !chk);
+            $(this).closest(".MultiCheckBoxDetail").next().UpdateSelect();
+        });
+
+        $(document).on("click", ".MultiCheckBoxDetail .cont input", function(e) {
+            e.stopPropagation();
+            $(this).closest(".MultiCheckBoxDetail").next().UpdateSelect();
+
+            var val = ($(".MultiCheckBoxDetailBody input:checked").length == $(".MultiCheckBoxDetailBody input").length)
+            $(".MultiCheckBoxDetailHeader input").prop("checked", val);
+        });
+
+        $(document).on("click", ".MultiCheckBoxDetail .cont", function(e) {
+            var inp = $(this).find("input");
+            var chk = inp.prop("checked");
+            inp.prop("checked", !chk);
+
+            var multiCheckBoxDetail = $(this).closest(".MultiCheckBoxDetail");
+            var multiCheckBoxDetailBody = $(this).closest(".MultiCheckBoxDetailBody");
+            multiCheckBoxDetail.next().UpdateSelect();
+
+            var val = ($(".MultiCheckBoxDetailBody input:checked").length == $(".MultiCheckBoxDetailBody input").length)
+            $(".MultiCheckBoxDetailHeader input").prop("checked", val);
+        });
+
+        $(document).mouseup(function(e) {
+            var container = $(".MultiCheckBoxDetail");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.hide();
+            }
+        });
+    });
+
+    var defaultMultiCheckBoxOption = { width: '220px', defaultText: 'Course', height: '165px' };
+
+    jQuery.fn.extend({
+        CreateMultiCheckBox: function(options) {
+
+            var localOption = {};
+            localOption.width = (options != null && options.width != null && options.width != undefined) ? options.width : defaultMultiCheckBoxOption.width;
+            localOption.defaultText = (options != null && options.defaultText != null && options.defaultText != undefined) ? options.defaultText : defaultMultiCheckBoxOption.defaultText;
+            localOption.height = (options != null && options.height != null && options.height != undefined) ? options.height : defaultMultiCheckBoxOption.height;
+
+            this.hide();
+            this.attr("multiple", "multiple");
+            var divSel = $("<div class='MultiCheckBox'>" + localOption.defaultText + "<span class='k-icon k-i-arrow-60-down'><svg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='sort-down' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' class='svg-inline--fa fa-sort-down fa-w-10 fa-2x'><path fill='currentColor' d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z' class=''></path></svg></span></div>").insertBefore(this);
+            divSel.css({ "width": localOption.width });
+
+            var detail = $("<div class='MultiCheckBoxDetail'><div class='MultiCheckBoxDetailHeader'><input type='checkbox' class='mulinput' value='-1982' /></div><div class='MultiCheckBoxDetailBody'></div></div>").insertAfter(divSel);
+            detail.css({ "width": parseInt(options.width) + 10, "max-height": localOption.height });
+            var multiCheckBoxDetailBody = detail.find(".MultiCheckBoxDetailBody");
+
+            this.find("option").each(function() {
+                var val = $(this).attr("value");
+
+                if (val == undefined)
+                    val = '';
+
+                multiCheckBoxDetailBody.append("<div class='cont'><div><input type='checkbox' class='mulinput' value='" + val + "' /></div><div>" + $(this).text() + "</div></div>");
+            });
+
+            multiCheckBoxDetailBody.css("max-height", (parseInt($(".MultiCheckBoxDetail").css("max-height")) - 28) + "px");
+        },
+        UpdateSelect: function() {
+            var arr = [];
+
+            this.prev().find(".mulinput:checked").each(function() {
+                arr.push($(this).val());
+            });
+
+            this.val(arr);
+        },
+    });
+    </script><!-- /build -->
+    <script>
+    $(document).ready(function() {
+        $("#test1").CreateMultiCheckBox({ width: '250px', defaultText: 'Stream', height: '200px' });
+    });
+
+    $(document).ready(function() {
+        $(document).on("click", ".MultiCheckBox", function() {
+            var detail = $(this).next();
+            detail.show();
+        });
+
+        $(document).on("click", ".MultiCheckBoxDetailHeader input", function(e) {
+            e.stopPropagation();
+            var hc = $(this).prop("checked");
+            $(this).closest(".MultiCheckBoxDetail").find(".MultiCheckBoxDetailBody input").prop("checked", hc);
+            $(this).closest(".MultiCheckBoxDetail").next().UpdateSelect();
+        });
+
+        $(document).on("click", ".MultiCheckBoxDetailHeader", function(e) {
+            var inp = $(this).find("input");
+            var chk = inp.prop("checked");
+            inp.prop("checked", !chk);
+            $(this).closest(".MultiCheckBoxDetail").find(".MultiCheckBoxDetailBody input").prop("checked", !chk);
+            $(this).closest(".MultiCheckBoxDetail").next().UpdateSelect();
+        });
+
+        $(document).on("click", ".MultiCheckBoxDetail .cont input", function(e) {
+            e.stopPropagation();
+            $(this).closest(".MultiCheckBoxDetail").next().UpdateSelect();
+
+            var val = ($(".MultiCheckBoxDetailBody input:checked").length == $(".MultiCheckBoxDetailBody input").length)
+            $(".MultiCheckBoxDetailHeader input").prop("checked", val);
+        });
+
+        $(document).on("click", ".MultiCheckBoxDetail .cont", function(e) {
+            var inp = $(this).find("input");
+            var chk = inp.prop("checked");
+            inp.prop("checked", !chk);
+
+            var multiCheckBoxDetail = $(this).closest(".MultiCheckBoxDetail");
+            var multiCheckBoxDetailBody = $(this).closest(".MultiCheckBoxDetailBody");
+            multiCheckBoxDetail.next().UpdateSelect();
+
+            var val = ($(".MultiCheckBoxDetailBody input:checked").length == $(".MultiCheckBoxDetailBody input").length)
+            $(".MultiCheckBoxDetailHeader input").prop("checked", val);
+        });
+
+        $(document).mouseup(function(e) {
+            var container = $(".MultiCheckBoxDetail");
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                container.hide();
+            }
+        });
+    });
+
+    var defaultMultiCheckBoxOption = { width: '220px', defaultText: 'Select Below', height: '200px' };
+
+    jQuery.fn.extend({
+        CreateMultiCheckBox: function(options) {
+
+            var localOption = {};
+            localOption.width = (options != null && options.width != null && options.width != undefined) ? options.width : defaultMultiCheckBoxOption.width;
+            localOption.defaultText = (options != null && options.defaultText != null && options.defaultText != undefined) ? options.defaultText : defaultMultiCheckBoxOption.defaultText;
+            localOption.height = (options != null && options.height != null && options.height != undefined) ? options.height : defaultMultiCheckBoxOption.height;
+
+            this.hide();
+            this.attr("multiple", "multiple");
+            var divSel = $("<div class='MultiCheckBox'>" + localOption.defaultText + "<span class='k-icon k-i-arrow-60-down'><svg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='sort-down' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' class='svg-inline--fa fa-sort-down fa-w-10 fa-2x'><path fill='currentColor' d='M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z' class=''></path></svg></span></div>").insertBefore(this);
+            divSel.css({ "width": localOption.width });
+
+            var detail = $("<div class='MultiCheckBoxDetail'><div class='MultiCheckBoxDetailHeader'><input type='checkbox' class='mulinput' value='-1982' /></div><div class='MultiCheckBoxDetailBody'></div></div>").insertAfter(divSel);
+            detail.css({ "width": parseInt(options.width) + 10, "max-height": localOption.height });
+            var multiCheckBoxDetailBody = detail.find(".MultiCheckBoxDetailBody");
+
+            this.find("option").each(function() {
+                var val = $(this).attr("value");
+
+                if (val == undefined)
+                    val = '';
+
+                multiCheckBoxDetailBody.append("<div class='cont'><div><input type='checkbox' class='mulinput' value='" + val + "' /></div><div>" + $(this).text() + "</div></div>");
+            });
+
+            multiCheckBoxDetailBody.css("max-height", (parseInt($(".MultiCheckBoxDetail").css("max-height")) - 28) + "px");
+        },
+        UpdateSelect: function() {
+            var arr = [];
+
+            this.prev().find(".mulinput:checked").each(function() {
+                arr.push($(this).val());
+            });
+
+            this.val(arr);
+        },
+    });
+    </script><!-- /build -->
+    <!-- Scripts Ends -->
+</body>
+<!-- Mirrored from themes.propeller.in/bootstrap4/html/bootstrap4-admin-theme/email-templates.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 May 2021 16:49:10 GMT -->
+
+</html>

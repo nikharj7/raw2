@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>List</title>
+</head>
+
+<body>
+    <div class="tab-content mt-5">
+                    <!-- Grid View -->
+                    <div role="tabpanel" class="tab-pane active" id="gridView">
+                        <div class="row">
+                            {% for lists in lists%}
+                            <div class="col-md-6 col-xl-4 col-12">
+                                <!-- Card Component -->
+                                <div class="card pmd-card user-info-card">
+                                    <!-- Card Header -->
+                                    <div class="card-header pmd-card-border d-flex flex-row align-items-center">
+                                        <a class="pmd-avatar-list-img" href="javascript:void(0);">
+                                            <img src="{{lists.Profile_Picture.url}}" style="height: 40px; width: 40px;" alt="Profile Image">
+                                        </a>
+                                        <div class="media-body">
+                                          <a href="student_list/{{lists.id}}"> <h3 class="card-title">{{lists.College_or_University_Name}}</h3></a> 
+                                        </div>
+                                        
+                                    </div>
+                                    <!-- List Group Component -->
+                                    <ul class="list-group pmd-list">
+                                        <li class="list-group-item d-flex flex-row">
+                                            
+                                            <div class="media-body">
+                                                <label class="pmd-list-subtitle">Course</label>
+                                                <p class="pmd-list-title">{{lists.Course}}</p>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex flex-row">
+                                            
+                                            <div class="media-body">
+                                                <label class="pmd-list-subtitle mb-0">Streme</label>
+                                                <p class="pmd-list-title">{{lists.Stream}}</p>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex flex-row">
+                                            
+                                            <div class="media-body">
+                                                <label class="pmd-list-subtitle">City</label>
+                                                <p class="pmd-list-title">{{lists.City}}</p>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item d-flex flex-row">
+                                            
+                                            <div class="media-body">
+                                                <label class="pmd-list-subtitle">Pin-Code</label>
+                                                <p class="pmd-list-title">{{lists.Pin_Code}}</p>
+                                            </div>
+                                        </li>
+                                    </ul><!-- List Group Component End -->
+                                    <!-- Card Footer -->
+                                </div>
+                                <!-- Card Component End -->
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <!-- Grid View End -->
+                    <!-- List View Start -->
+                    <!-- List View End -->
+                </div>
+</body>
+
+</html>
+
